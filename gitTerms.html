@@ -1,0 +1,138 @@
+init<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Terms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: rgb(55, 86, 99);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10px;
+            font-size: 20px;
+            list-style: none;
+
+
+
+        }
+
+        header a {
+            padding: 20px;
+            color: yellow;
+        }
+
+        header a:hover {
+            color: rgb(106, 192, 228);
+        }
+
+        .nav_links {
+            list-style: none;
+
+
+        }
+
+
+
+        .nav_links li {
+            display: inline-block;
+            padding: 0px 40px;
+            font-size: 20px;
+
+        }
+
+
+        .nav_links li a {
+            color: yellow;
+            transition: all 0.3s ease 0s;
+
+        }
+
+        .nav_links li a:hover {
+            color: rgb(106, 192, 228);
+        }
+
+
+
+        .container {
+            display: flex;
+            position: relative;
+            background-color: rgb(223, 241, 249);
+            min-height: 100%;
+        }
+
+
+        .termsDiv {
+            display: block;
+            border-radius: 10px;
+            padding: 40px;
+            width: 60%;
+            margin: 15% auto;
+            line-height: 50px;
+            text-align: left;
+            background-color: rgb(130, 188, 213);
+            box-shadow: 3px 5px 30px 5px rgb(55, 86, 99);
+
+        }
+    .termsDiv p{
+        line-height: 25px;
+    }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <li><a href="http://www.halahaz.us">Home</a></li>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="http://www.halahaz.us/wdv341">My wdv341</a></li>
+                <li><a href="https://github.com/halahzee/wdv341">Git Repo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="termsDiv">
+        <h1>Git Terms</h1>
+            <ol>
+                 <li><i><b>Version Control Software:</b></i></li>
+                    <p>Version control, also known as source control, is the practice of tracking and managing changes to software code. Version control systems are software tools that help software teams manage changes to source code over time. As development environments have accelerated, version control systems help software teams work faster and smarter.</p>
+                <li><i><b>Add</b></i></li>
+                    <p>The git add command adds a change in the working directory to the staging area. It tells Git that you want to include updates to a particular file in the next commit. However, git add doesn't really affect the repository in any significant way—changes are not actually recorded until you run git commit.
+
+                    </p>
+                <li><i><b>Commit</b></i></li>
+                    <p>The git commit command captures a snapshot of the project's currently staged changes. Committed snapshots can be thought of as “safe” versions of a project—Git will never change them unless you explicitly ask it to. Prior to the execution of git commit.</p>
+                <li><i><b>Push</b></i></li>
+                    <p>
+                        Pushing is the opposite of fetching (with a few caveats). It lets you move a local branch to another repository, which serves as a convenient way to publish contributions. This is like svn commit, but it sends a series of commits instead of a single changeset.
+                    </p>
+                <li><i><b>Pull</b></i></li>
+                    <p>
+                        Pulling is the automated version of git fetch. It downloads a branch from a remote repository, then immediately merges it into the current branch. This is the Git equivalent of svn update.
+
+
+                    </p>
+                <li><i><b>Clone</b></i></li>
+                    <p>
+                        Creates a copy of an existing Git repository. Cloning is the most common way for developers to obtain a working copy of a central repository.
+                    </p>
+                <li><i><b>Store the document in your wdv341 folder</b></i></li>
+                    <p>
+                        
+                    </p>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>
