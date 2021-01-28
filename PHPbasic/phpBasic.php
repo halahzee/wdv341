@@ -14,13 +14,11 @@
     echo $yourName;
     $number1 = "4";
     $number2 = "10";
-    echo "Number1" . " = " . $number1;
-    echo "<br><br>";
-    echo "Number2" . " = " . $number2;
-    echo "<br><br>";
-    echo "Number1". "+" . " ". "Number2"." " ."=" . " ";
-    echo "$number1" + "$number2";
-
+    $total = $number1 + $number2;
+    echo "<h4>Number 1 = $number1
+    <br>Number 2 = $number2
+    <br>Total = $total</h4>";
+    
     ?>
    <h2>Create a variable that is an php array</h2>
    <?php
