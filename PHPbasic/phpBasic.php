@@ -20,10 +20,21 @@
     echo "<br><br>";
     echo "Number1". "+" . " ". "Number2"." " ."=" . " ";
     echo "$number1" + "$number2";
+
     ?>
-    <script>
-        $languages = array["PHP", "HTML" , "JAVASCRIPT"];
-        
-        </script>
+   <h2>Create a variable that is an php array</h2>
+   <?php
+    $language = array('PHP.', 'HTML.', 'JAVASCRIPT.')?>
+    <h3>List of Languages</h3>
+    <ul>
+    <?php foreach ($language as $language) { ?>
+    <li><?php echo $language ?></li>
+    <?php }  ?>
+    </ul>
+
+   
+    
+   
+
 </body>
 </html>
