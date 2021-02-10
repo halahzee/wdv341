@@ -20,18 +20,14 @@
     <br>Total = $total</h4>";
     
     ?>
-   <h2>Create a variable that is an php array</h2>
+   <h3>Create a PHP variable that is an array containing the values 'PHP', 'HTML' and 'Javascript'. </h3>
+   <script>
    <?php
-    $language = array('PHP.', 'HTML.', 'JAVASCRIPT.')?>
-    <h3>List of Languages</h3>
-    <ul>
-    <?php foreach ($language as $language) { ?>
-    <li><?php echo $language ?></li>
-    <?php }  ?>
-    </ul>
-
+    $language = array('PHP', 'HTML', 'JAVASCRIPT');
+    echo "document.write ('$language[0], $language[1], $language[2]');";
+  ?>
    
-    
+    </script>
    
 
 </body>
