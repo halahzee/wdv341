@@ -26,7 +26,7 @@
     $language = array('PHP', 'HTML', 'JAVASCRIPT');
     echo "document.write ('$language[0], $language[1], $language[2]');";
   ?>
-   
+  
     </script>
    
 
