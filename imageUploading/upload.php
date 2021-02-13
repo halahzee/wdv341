@@ -1,6 +1,6 @@
-<?php include 'functions.php'; 
-
-
+<?php include 'function.php'; 
+?>
+<?php
 $file_data = $_FILES['file_to_upload'];
 $temp_name = $file_data['tmp_name'];
 $file_name = $file_data['name'];
