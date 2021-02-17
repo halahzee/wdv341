@@ -8,6 +8,7 @@
     <title>File upload PHP</title>
 </head>
 <body>
+
 <?php 
 if($uploaded = v_array('uploaded', $_GET)){
     if(!$uploaded != 1){ ?>
