@@ -6,7 +6,7 @@
     <title>File Upload</title>
     <style>
         form{
-            background: linear-gradient(#e66465, #9198e5);
+            background: linear-gradient(#e66465, #9198e4);
             padding: 10%;
             font-size: 20px;
         }
