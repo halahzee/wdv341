@@ -16,8 +16,6 @@ $conn = null;
 ?>
 
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
