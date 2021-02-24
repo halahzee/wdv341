@@ -45,7 +45,7 @@ $timestamp = strtotime($inDate);
 $date = date('d/m/Y', $timestamp);
 echo $date;
 
-   
+
 };
 function stringInputResults($inString)
 {

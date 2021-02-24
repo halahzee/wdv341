@@ -1,7 +1,7 @@
 <?php
 require_once('connect-pdo.php');
 
-$db_time_format = 'H:i:s';
+$time = date('G:i', time());
 $db_date_format = 'Y-m-d';
 
 
@@ -14,7 +14,6 @@ $results = $queryObj->fetchAll(PDO::FETCH_ASSOC);
 $conn = null;
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -39,27 +38,27 @@ $conn = null;
     <section>
         <h2 style="text-align: center;"> 
             <?=$queryObj->rowCount()?> Events are available today.
-        </h2>
+        </h2><br>
         <?php foreach($results as $result){ ?>
         <div class="eventBlock">
             <div>
                 <span class="displayEvent">
                     Event: <?=$result['name']?>
-                </span>
+                </span><br>
                 <div>
                     Presenter: <?=$result['presenter']?>
-                </div>
+                </div><br>
                 <div>
                     <span class="displayTime">
-                        <?php $time= DateTime::createFromFormat($db_time_format, $result['time']); ?>
-                        Time: <?=$time->format('g:i a')?>
-                    </span>
+                        
+                        Time: <?php echo "$time"?>
+                    </span><br>
                 </div>
                 <div>
                     <span class="displayDate">
                     <?php $date= DateTime::createFromFormat($db_date_format, $result['date']); ?>
                         Date: <?=$date->format('l M, d, Y') ?>
-                    </span>
+                    </span><br>
                 </div>
             </div>
             <div>
