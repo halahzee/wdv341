@@ -74,22 +74,21 @@ function stringInputResults($inString)
 }
 
 
-function phoneFormat($number) {
-	if(ctype_digit($number) && strlen($number) == 10) {
-  	$number = substr($number, 0, 3) .'-'. substr($number, 3, 3) .'-'. substr($number, 6);
-	} 
+function phone_Forma($number) {
+	// Allow only Digits, remove all other characters.
+	$number = preg_replace("/[^\d]/","",$number);
+   
+	// get number length.
+	$length = strlen($number);
+   
+   // if number = 10
+   if($length == 10) {
+	$number = preg_replace("/^1?(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $number);
+   }
 	
-	else {
-		if(ctype_digit($number) && strlen($number) == 7) {
-			$number = substr($number, 0, 3) .'-'. substr($number, 3, 4);
-		}
-	}
 	return $number;
-}
-
-function numberFormat($inNum) {
-	echo (number_format($inNum));
-}
+   
+  }
 
 
 
@@ -118,7 +117,7 @@ function formatMoney($inNum)
 <hr>
 
 <h3>4. Create a function that will accept a number and display it as a formatted phone number.   Use 1234567890 for your testing.<br><br>
-<?php numberFormat(1234567890);?>
+<?php echo phone_Forma(1234567890);?>
 </h3>
 
 <hr>

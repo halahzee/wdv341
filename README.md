@@ -1,2 +1,2 @@
 # wdv341
-WDV341 Course
+WDV341 Class
