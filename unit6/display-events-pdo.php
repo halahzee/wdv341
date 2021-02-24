@@ -6,7 +6,6 @@ $db_date_format = 'Y-m-d';
 
 
 $query = 'SELECT name, description, presenter, time, date ';
-
 $query .= 'FROM wdv341_events';
 $queryObj = $conn->query($query);
 $results = $queryObj->fetchAll(PDO::FETCH_ASSOC);
@@ -41,37 +40,37 @@ $conn = null;
 	</header>
     <section>
         <h2 style="text-align: center;"> 
-            <? $queryObj->rowCount()?> Events are available today.
+            <?=$queryObj->rowCount()?> Events are available today.
         </h2>
-        <?php foreach($results as $results){ ?>
+        <?php foreach($results as $result){ ?>
         <div class="eventBlock">
             <div>
                 <span class="displayEvent">
-                    Event: <?= $results['name']?>
+                    Event: <?=$result['name']?>
                 </span>
                 <div>
-                    Presenter: <?= $results['presenter']?>
+                    Presenter: <?=$result['presenter']?>
                 </div>
                 <div>
                     <span class="displayTime">
-                        <?= $time = DateTime::createFromFormat($db_time_format, $results['time']); ?>
-                        Time: <?= $time->format('g:i a')?>
+                        <?php $time= DateTime::createFromFormat($db_time_format, $result['time']); ?>
+                        Time: <?=$time->format('g:i a')?>
                     </span>
                 </div>
                 <div>
                     <span class="displayDate">
-                    <?= $date= DateTime::createFromFormat($db_date_format, $results['date']); ?>
-                        Date: <?=$date->format('l M, d,Y') ?>
+                    <?php $date= DateTime::createFromFormat($db_date_format, $result['date']); ?>
+                        Date: <?=$date->format('l M, d, Y') ?>
                     </span>
                 </div>
             </div>
             <div>
                 <span class="displayDescription">
-                    Description:<br> <?= $results['description']?>
+                    Description:<br> <?=$result['description']?>
                 </span>
             </div>
         </div>
-        <?php }//close event loop ?>
+        <?php } ?>
     </section>
 </body>
 </html>

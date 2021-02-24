@@ -1,8 +1,8 @@
 <?php 
 
 $value = 'foo';
-$s =$conn->prepare("SELECT name FROM bar WHERE baz = :baz");
-$s->bindParam(':baz', $value);
+$s =$conn->prepare("SELECT name FROM bar WHERE baz = :baz"); //this is a sql query inside our connection
+$s->bindParam(':baz', $value); // bind the value 
 $value = "Something Else";
 $s->execute(); 
 

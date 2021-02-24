@@ -1,0 +1,17 @@
+Connection to database failed!
+mysqli Object
+(
+    [client_version] => 70412
+    [connect_errno] => 1045
+    [connect_error] => Access denied for user 'root'@'localhost' (using password: NO)
+)
+
+Connection to database failed!
+mysqli Object
+(
+    [client_version] => 70412
+    [connect_errno] => 1045
+    [connect_error] => Access denied for user 'root'@'localhost' (using password: NO)
+)
+
+
