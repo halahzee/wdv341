@@ -1,11 +1,11 @@
 <?php
-require_once('connect-pdo.php');
+require_once('connect-pdo.php'); // get the event data from server.
 
-$time = date('G:i', time());
+//$time = date('G:i:s' , time());
 $db_date_format = 'Y-m-d';
 
 
-$query = 'SELECT name, description, presenter, time, date ';
+$query = "SELECT name, description, presenter, time, date, 'date-updated' ";
 $query .= 'FROM wdv341_events';
 $queryObj = $conn->query($query);
 $results = $queryObj->fetchAll(PDO::FETCH_ASSOC);
@@ -50,8 +50,8 @@ $conn = null;
                 </div><br>
                 <div>
                     <span class="displayTime">
-                        
-                        Time: <?php echo "$time"?>
+                   
+                        Time:  <?php echo date('G:i:s' , strtotime($result[time]))?>
                     </span><br>
                 </div>
                 <div>
