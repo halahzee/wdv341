@@ -48,7 +48,7 @@ $conn = null;
             
         <div class="productImage">
           
-				<img src="productImages/<?php echo $row['product_image']; ?>">
+				<img src="productImages/<?php echo $results['product_image']; ?>">
              
              <!--this worked!!
 				<img src="productImages/flashDrive.jpg<?php echo $row['product_image']; ?>">
