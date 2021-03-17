@@ -50,9 +50,6 @@ $conn = null;
           
 				<img src="productImages/<?php echo $results['product_image']; ?>">
              
-             <!--this worked!!
-				<img src="productImages/flashDrive.jpg<?php echo $row['product_image']; ?>">
-                   -->
 			</div>
 
             <p class="productName"><?=$results['product_name']?></p>
