@@ -46,7 +46,7 @@ mail($email, 'WDV341 Class Subscription', 'in-Class test is working !!!');
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>WDV 341 Intro PHP - Code Example</title>
+    <title>Form handling</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
