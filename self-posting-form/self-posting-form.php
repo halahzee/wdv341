@@ -17,7 +17,7 @@ $form_submitted = v_array('submitted', $_POST);
 $honeypot_value = v_array('dont_you_do_it', $_POST); // we need to make sure that the honeypot is empty
 $valid_form_submission= $form_submitted && !$honeypot_value;
 
-if($form_submitted) {
+if($valid_form_submission) {
     // we know that the form submitted.
 $first_name = v_array('first_name', $_POST);
 $last_name = v_array('last_name', $_POST);
@@ -94,7 +94,7 @@ mail($email, 'WDV341 Class Subscription', 'in-Class test is working !!!');
         <?php  
         // This is where you'll check if the form was submitted and show a response, and hide the form
         // Only show the form on page load if the form wasn't submitted
-    if($form_submitted && $valid_form) {?>
+    if($valid_form_submission && $valid_form) {?>
                 <div>
                     <h2>
                     Thank You for submitting the form <?=$first_name?> <?=$last_name?>!!<br>
@@ -106,13 +106,13 @@ mail($email, 'WDV341 Class Subscription', 'in-Class test is working !!!');
                     <p>A confirmation email has been sent to  <?= $email?> which contains instruction on next steps.</p>
                 </div>
 
-    <?php } elseif($form_submitted) { ?>
+    <?php } elseif($valid_form_submission) { ?>
              <p>
              There is some error in the form, please fix it and submit the form again.  
              </p>
     <?php }?>
 
-    <?php if(($form_submitted && !$valid_form) || !$form_submitted) { ?>
+    <?php if(($valid_form_submission && !$valid_form) || !$valid_form_submission) { ?>
 
         <h2>Newsletter Signup</h2>
         <p>Please enter your full name and email to receive our super sweet newsletter!</p>
