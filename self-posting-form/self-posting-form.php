@@ -136,21 +136,26 @@ mail($email, 'WDV341 Class Subscription', 'in-Class test is working !!!');
             <span id="error-input" class="error"><?=$error_input?></span> 
             <p>
             <h2>Please Select Subscription Type:</h2>
-            <input type="radio" value="Normal" id="normal-radio" name='radio_input' value="<?=$radio_input ?: ''?>"/>
+            
+            <input type="radio" value="Normal" id="normal-radio" name='radio_input' 
+            <?=$radio_input == 'Normal' ? 'checked' : ''?> />
 
             <label for="Normal">Normal</label>
             <br>
           
-            <input type="radio" value="Expert" id="expert-radio" name='radio_input' >
+            <input type="radio" value="Expert" id="expert-radio" name='radio_input' 
+           <?=$radio_input == 'Expert' ? 'checked' : ''?> />
             <label for="Expert">Expert</label>
 
             </p>
             <span id="error-sub" class="error"><?=$error_sub?></span> 
             <p>
             <h2>Receive Special offers and latest update?</h2>
-            <input type="radio" value="Yes" id="yes-radio" name='radio_sub' value="<?=$radio_sub ?: ''?>">
+            <input type="radio" value="Yes" id="yes-radio" name='radio_sub' 
+            <?=$radio_sub == 'Yes' ? 'checked': ''?>>
             <label for="Normal">Yes</label>
-            <input type="radio" value="No" id="yes-radio" name='radio_sub' <?=$radio_sub ?: ''?>">
+            <input type="radio" value="No" id="yes-radio" name='radio_sub' 
+            <?=$radio_sub == 'No' ? 'checked': ''?>>
             <label for="Normal">No</label>
             <br>
             </p>
