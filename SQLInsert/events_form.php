@@ -110,7 +110,7 @@ function valid_time($time) {
          .success {color: green;}.error {color:#cc0000;}
          section {}section div {}#characters {display: flex; }#characters div {width: 50%;}#characters img {max-width: 100%;}#characters p {font-size: .75rem; margin: 0;}
         .displayDiv{
-            background: gray;
+            background: lightgray;
             color: navy;
             display: block;
             padding: 5px;
@@ -165,12 +165,13 @@ function valid_time($time) {
              foreach($events as $events) { 
                  ?>
                  <div class="displayDiv">
-                     <p>Event Name: <br><?=$events['name']?></p><br><br>
-                     <p>Event description  : <br><?=$events['description']?></p><br>
-                     <p>Event Presenter   : <br><?=$events['presenter']?></p><br>
-                     <p>Event Date  :<br> <?=$events['date']?></p><br>
-                     <p>Event Time  :<br><?php echo date('G:i:s' , strtotime($events[time]))?></p><br><br>
-                
+                 <ol>
+                  <li>   <p>Event Name: <br><?=$events['name']?></p></li><br><br>
+                  <li>   <p>Event description  : <br><?=$events['description']?></p></li><br>
+                  <li>   <p>Event Presenter   : <br><?=$events['presenter']?></p></li><br>
+                  <li>   <p>Event Date  :<br> <?=$events['date']?></p></li><br>
+                  <li>   <p>Event Time  :<br><?php echo date('G:i:s' , strtotime($events[time]))?></p></li><br><br>
+                     </ol>
                    
                  </div>
              <?php } ?>
