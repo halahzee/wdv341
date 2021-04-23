@@ -1,0 +1,38 @@
+.head {
+    text-align: center;
+    justify-content: center;
+    margin-left: 30%;
+}
+ .moviesDiv{
+    background-color: tomato;
+    width: 50%;
+    color: whitesmoke;
+    margin-bottom: 25px;
+    margin-top: 20px;
+    padding: 5% 16%;
+    border-radius: 20px;
+ }
+
+ .moviesDiv p{
+    color: whitesmoke;
+ }
+ .jumbotron img{
+     margin-left: 17%;
+ }
+ .jumbotron h1{
+     text-align:center;
+     margin: 10px;
+ }
+
+ .homeMovies{
+     width: 100%;
+     margin: auto;
+     
+ }
+ .homeMovies h1{
+     margin: 5% 31%;
+ }
+
+ .homeMovies img{
+    margin: 3% 15%;
+ }
