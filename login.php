@@ -3,17 +3,17 @@ require_once('functions.php');
 session_start();
 
 if ($logged_in = is_logged_in()) {
-    header('Location: index.php');
+    header('Location: moviesForm.php');
 } else {
     // Check if the user submitted the login form
     if (v_array('submit', $_POST)) {
         $username = v_array('username', $_POST);
         $password = v_array('password', $_POST);
-        $logged_in = log_in($username, $password);
+        $logged_in = log_in($username, $password, $conn);
 
         // Send the logged in user to the movies page
         if ($logged_in) {
-            header('Location: index.php');
+            header('Location: moviesForm.php');
         }
     }
 }

@@ -31,7 +31,7 @@ if (is_logged_in()) {
   // $inCategories = "";
 
   $honeypot_value = v_array('dont_you_do_it', $_POST); // we need to make sure that the honeypot is empty
-  $valid_form_submission = $form_submitted && !$honeypot_value;
+  $valid_form_submission = $formSubmitted && !$honeypot_value;
 
   if ($valid_form_submission) {
 
@@ -42,7 +42,7 @@ if (is_logged_in()) {
     $inCategories = v_array('movieCategories', $_POST);
 
 
-    function validateTitle()
+    function validateTitle($inTitle)
     {
       if ($inTitle == '') {
         return false;
@@ -57,7 +57,7 @@ if (is_logged_in()) {
 
 
 
-    function validateDirector()
+    function validateDirector($inDirector)
     {
       if ($inDirector == '') {
         return false;
@@ -70,7 +70,7 @@ if (is_logged_in()) {
       $directorErrMsg = 'please Add Director Name';
     }
 
-    function validateRating()
+    function validateRating($inRating)
     {
       if ($inRating == '') {
         return false;
@@ -84,7 +84,7 @@ if (is_logged_in()) {
     }
 
 
-    function validateYear()
+    function validateYear($inYear)
     {
       if ($inYear == '') {
         return false;
@@ -97,7 +97,7 @@ if (is_logged_in()) {
       $yearErrMsg = 'please add year';
     }
 
-    function validateCategories()
+    function validateCategories($inCategories)
     {
       if ($inCategories == '') {
         return false;
@@ -118,29 +118,28 @@ if (is_logged_in()) {
       $sql = "INSERT INTO wdv341_movies (";
       $sql .= "title, ";
       $sql .= "director, ";
-      $sql .= "rating ";
+      $sql .= "rating, ";
       $sql .= "releaseyear, ";
-      $sql .= "categorires, ";
-
+      $sql .= "categorires ";
       $sql .= ") VALUES (:title, :director, :rating, :releaseyear, :categorires)";
-
       //PREPARE the SQL statement
       $stmt = $conn->prepare($sql);
 
-      //BIND the values to the input parameters of the prepared statement
-      $stmt->bindParam(':title', $inTitle);
-      $stmt->bindParam(':director', $inDirector);
-      $stmt->bindParam(':rating', $inRating);
-      $stmt->bindParam(':releaseyear', $inYear);
-      $stmt->bindParam(':categorires', $inCategories);
+      $params = [
+        'title' => $inTitle,
+        'director' => $inDirector,
+        'rating' => $inRating,
+        'releaseyear' => $inYear,
+        'categorires' => $inCategories
+      ];
 
       //EXECUTE the prepared statement
-      $stmt->execute();
+      $stmt->execute($params);
 
-      $message = "A Movie has been added.";
+
+      $_SESSION['success'] = $message;
     } catch (PDOException $e) {
       $message = "There has been a problem.";
-
       error_log($e->getMessage());
       error_log(var_dump(debug_backtrace()));
     }
@@ -221,7 +220,19 @@ if (is_logged_in()) {
       <div class="row">
         <div class="addForm col-sm-12 col-md-12 col-lg-12">
 
-          <form method="post" action="moviesForm.php" name="movieForm" id="movieForm">
+          <?php
+          if (isset($_SESSION['success'])) {
+          ?>
+            <div class="alert alert-secondary" role="alert">
+              <?php echo $_SESSION['success'];  ?>
+            </div>
+
+          <?php
+            unset($_SESSION['success']);
+          }
+          ?>
+
+          <form method="post" action="moviesForm.php" name="movieForm" id="movieForm" onsubmit="return confirm('Do you want to submit movie?')">
             <h1 class="fill">Add a Movie!</h1>
             <div class="fill">
               <label for="movieTitle">Movie Title:</label><br>
