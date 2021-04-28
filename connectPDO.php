@@ -1,10 +1,12 @@
 <?php
+
+error_reporting(0);
 require_once 'functions.php';
 
 $servername = 'localhost';
 $username = 'root';
-$password = '';
-$database = 'final_project';
+$password = 'root';
+$database = 'wdv341';
 $connectionError = "";
 
 try {

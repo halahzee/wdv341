@@ -31,9 +31,66 @@ if ($logged_in = is_logged_in()) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
-        .container {
-            background-color: #fca311;
-        }
+      *{
+  font-family:  'Trebuchet MS', sans-serif;
+  list-style: none;
+}
+  .container {
+    background-color: black;
+      }
+      .head {
+    justify-content: space-between;
+    text-align: center;
+    background-image: url(./images/header.jpg);
+    color: white;
+    font-weight: bold;
+    padding: 30px;
+}
+.head h1{
+  background: rgba(50, 0, 10, 0.6);
+
+}
+
+.head li a{
+  color: white;
+  text-decoration: underline;
+}
+
+.head img{
+  width: 60%;
+}
+
+.navbar{
+ background:#931056;
+}
+
+.navbar li a{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+ 
+ 
+}
+
+form ul {
+        text-align:
+            left;
+        font-size: 22px;
+        margin: 0;
+    }
+
+    .head li a {
+        color: white;
+        font-size: 22px;
+        text-align: left;
+        text-decoration: underline;
+    }
+.navbar a:hover{
+      background: black;
+      width: 200px;
+      transition: 0.5s linear;
+ }
+    
 
         .head {
             text-align: center;
@@ -47,12 +104,18 @@ if ($logged_in = is_logged_in()) {
         }
 
         .formLogin {
-            background-color: navy;
-            color: white;
+            background-color: white;
+            color: black;
             margin: 40px 25%;
             width: 50%;
             padding: 100px;
+            padding-bottom: 300px;
+            padding-top: 200px;
         }
+
+        .footer {
+            background:#931056;
+}
     </style>
 </head>
 
@@ -60,30 +123,33 @@ if ($logged_in = is_logged_in()) {
     <div class="container">
         <div class="row">
             <div class="head  col-xs-12 col-md-12 col-lg-12 bg-info">
-                <header>
-                    <img src=images/imagesMovie.jpeg width="500px" alt="" /><br><br>
-                    <h1>Welcome to My Movie App </h1>
-                </header>
+            <header>
+          <h1>Movie Night
+          <ul> <li class="nav-item"><a class="nav-link" href="login.php">Admin Login</a></li></ul>
+          <form method="post" action="moviesForm.php" enctype="multipart/form-data" name="movieForm" id="movieForm" onsubmit="return confirm('wanna log out!!')">
+          <ul> <input type="submit" id="logout" name="logout" value="Log Out"></input></ul>
+          </form>
+         </h1>
+        </header>
             </div>
         </div>
 
         <div class="row">
             <!--row-->
-            <nav class="navbar col-xs-12 col-md-12 col-lg-12 bg-dark ">
+            <nav class="navbar col-xs-12 col-md-12 col-lg-12">
                 <ul class="nav justify-content-center">
                     <li class="nav-item"><a class="nav-link" href="moviesHome.php"> Home </a></li>
                     <li class="nav-item"><a class="nav-link" href="movieApp.php"> Movies Gallery </a></li>
                     <li class="nav-item"><a class="nav-link" href="moviesForm.php"> Add Movie</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.php"> Contact Us </a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.php">Admin Login</a></li>
-
+                  
                 </ul>
             </nav>
         </div>
         <!--End of row-->
         <section>
             <div class="row">
-                <div class="loginForm col-sm-12 col-md-12 col-lg-12 bg-warning ">
+                <div class="loginForm col-sm-12 col-md-12 col-lg-12">
                     <div class="formLogin">
                         <h1>Admin Log in</h1>
                         <form action="login.php" method="post">
@@ -104,7 +170,7 @@ if ($logged_in = is_logged_in()) {
         <div class="row">
             <!--Footer Div-->
 
-            <footer class="col-s-12 col-md-12 col-lg-12 text-center p-3 bg-info">
+            <footer class="col-s-12 col-md-12 col-lg-12 text-center p-3 footer">copy right
                 &copy; <?php echo date('Y'); ?>
             </footer>
         </div>

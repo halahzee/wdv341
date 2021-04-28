@@ -8,7 +8,6 @@ function v_array($needle, $haystack) {
     return 0;
 }
 
-
 function valid_fname($fname) {
     if($fname == '') {
         return false;
@@ -16,8 +15,6 @@ function valid_fname($fname) {
 
     return true;
 }
-
-
 
 function valid_lname($lname) {
     if($lname == '') {
