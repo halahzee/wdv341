@@ -141,9 +141,14 @@ $conn = null;
 .footer {
   background:#931056;
 }
-@media only screen and (max-width:414px){
+@media screen and (max-width:660px){
   .imgDisplay img{
     width: 200px;
+}
+.displayMain{
+  width: 100%;
+  background-color: blue;
+
 }
     }
 

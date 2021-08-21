@@ -24,6 +24,12 @@ if (is_logged_in()) {
   $validForm = true;
   $formSubmitted = v_array('submitForm', $_POST);
 
+  // $inTitle = "";
+  // $inDirector = "";
+  // $inYear = "";
+  // $inRating = "";
+  // $inCategories = "";
+
   $honeypot_value = v_array('dont_you_do_it', $_POST); // we need to make sure that the honeypot is empty
   $valid_form_submission = $formSubmitted && !$honeypot_value;
 
@@ -35,7 +41,7 @@ if (is_logged_in()) {
     $inYear = v_array('movieYear', $_POST);
     $inCategories = v_array('movieCategories', $_POST);
 
-//validate all the inputs 
+
     function validateTitle($inTitle)
     {
       if ($inTitle == '') {
@@ -101,27 +107,11 @@ if (is_logged_in()) {
 
     if (!validateCategories($inCategories)) {
       $validForm = false;
-      $catErrMsg = 'please add Categories';
-    }
-    function validateImage($slider_image_name_new)
-    {
-      if ($inCategories == '') {
-        return false;
-      }
-      return true;
-    }
-
-    if (!validateImage($slider_image_name_new)) {
-      $validForm = false;
-      $catErrMsg = 'please select an image';
+      $catErrMsg = 'please add year';
     }
   }
-
-
-
-
   if ($validForm) {
-    $message = "You have submitted the form successfully!"; // if the form valid and submitted then display this message.
+    $message = "You have submitted the form successfully!";
 
     try {
       //Create the SQL command string
@@ -136,7 +126,9 @@ if (is_logged_in()) {
       //PREPARE the SQL statement
       $stmt = $conn->prepare($sql);
 
+
       $dir = "images/";
+
 
         if (!file_exists($_FILES['file_img']['tmp_name']) || !is_uploaded_file($_FILES['file_img']['tmp_name'])) 
             {
@@ -148,11 +140,14 @@ if (is_logged_in()) {
                 $slider_image_tmp_name = $_FILES['file_img']['tmp_name'];
                 $slider_image_extension = strrchr($slider_image_name, '.');
                 $slider_image_extension = strtolower($slider_image_extension);
+                
                 $slider_image_name_new = "movie_image_" . time() . $slider_image_extension;
+                
                 $upload_image = move_uploaded_file($slider_image_tmp_name, $dir . $slider_image_name_new);
             }
+        
 
-   
+
       $params = [
         'title' => $inTitle,
         'director' => $inDirector,
@@ -170,7 +165,7 @@ if (is_logged_in()) {
     } catch (PDOException $e) {
       $message = "There has been a problem.";
       error_log($e->getMessage());
-     
+      // error_log(var_dump(debug_backtrace()));
     }
   } else {
     $message = "Please fill out the form.";
@@ -178,6 +173,7 @@ if (is_logged_in()) {
 } else {
   $message = "";
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -195,6 +191,10 @@ if (is_logged_in()) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <style>
+    #dont-you-do-it {
+      display: none;
+    }
+
     * {
         font-family: 'Trebuchet MS', sans-serif;
         list-style: none;
@@ -380,7 +380,7 @@ if (is_logged_in()) {
                             <td class="error"><?php echo "$catErrMsg";  ?></td><br>
                             <input type="file" id="image" id="file_img" name="file_img"
                                 accept="image/*"></input><br><br>
-                            <input type="text" name="dont_you_do_it" id="dont-you-do-it" value="" />
+                            <!-- <input type="text" name="dont_you_do_it" id="dont-you-do-it" value="" /> -->
                         </div>
                         <input type="reset" id="reset" name="reset" value="Reset"></input>
                         <input type="submit" id="submitForm" name="submitForm" value="Submit"></input><br><br>

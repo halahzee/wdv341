@@ -25,6 +25,12 @@ if (is_logged_in()) {
   $validForm = true;
   $formSubmitted = v_array('submitForm', $_POST);
 
+  // $inTitle = "";
+  // $inDirector = "";
+  // $inYear = "";
+  // $inRating = "";
+  // $inCategories = "";
+
   $id=isset($_REQUEST['id'])?$_REQUEST['id']:0;
 
   $update=isset($_REQUEST['update'])?$_REQUEST['update']:false;
@@ -113,7 +119,7 @@ if (is_logged_in()) {
 
     if (!validateCategories($inCategories)) {
       $validForm = false;
-      $catErrMsg = 'please add categories';
+      $catErrMsg = 'please add year';
     }
   }
  
@@ -150,7 +156,6 @@ if (is_logged_in()) {
       $sql .= "movie_image=:movie_image,";
       $sql .= "categorires=:categorires WHERE id=:id";
      // $sql .= " VALUES (, :director, :rating, :releaseyear, :categorires)";
-     
       //PREPARE the SQL statement
       $stmt = $conn->prepare($sql);
 
@@ -174,7 +179,7 @@ if (is_logged_in()) {
     } catch (PDOException $e) {
       $message = "There has been a problem.";
   //    print_r($e);
-   
+     //  echo '====================here';
       error_log($e->getMessage());
       error_log(var_dump(debug_backtrace()));
     }
@@ -399,7 +404,7 @@ if (is_logged_in()) {
                             <label for="file_img">Movie Image:</label><br>
                             <td class="error"><?php echo "$catErrMsg";  ?></td><br>
                             <input type="file" id="image" name="file_img" accept="image/*"></input><br><br>
-                            <input type="text" name="dont_you_do_it" id="dont-you-do-it" value="" />
+                            <!-- <input type="text" name="dont_you_do_it" id="dont-you-do-it" value="" /> -->
                         </div>
                         <input type="reset" id="reset" name="reset" value="Reset"></input>
                         <input type="submit" id="submitForm" name="submitForm" value="Submit"></input>
